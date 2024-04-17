@@ -38,8 +38,27 @@ def bcln(*a):
     for value in a:
         map_thua_so[value] = phan_tich_thua_so(value)
         
+#bai 5
+def chuoi_dai_nhat(list_chuoi:list):
+    map_chuoi_by_length = {}
+    for chuoi in list_chuoi:
+        if map_chuoi_by_length.get(len(chuoi)):
+            map_chuoi_by_length[len(chuoi)].append(chuoi)
+        else:
+            map_chuoi_by_length[len(chuoi)] = [chuoi]
+    length_dai_nhat = max(map_chuoi_by_length.keys())
+    return map_chuoi_by_length[length_dai_nhat]
+#bai 6
+from collections import defaultdict
+def count_char(my_string:str):
+    count_map = defaultdict(int)
+    for c in my_string.replace(" ",""):
+        count_map[c]+=1
+    return count_map 
     
         
 if __name__ == "__main__":
-    print(phan_tich_thua_so(20))
-    print(ucln(10,20))
+    # print(phan_tich_thua_so(20))
+    # print(ucln(10,20))
+    print(chuoi_dai_nhat(["1234","124","1234"]))
+    print(count_char("xin chao moi nguoi"))
